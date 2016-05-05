@@ -1,0 +1,9 @@
+node_modules
+.sass-cache
+.sass-cache/**/*.scssc
+.ftppass
+js/main.min.js
+js/main.js.map
+css/style.css
+css/style.css.map
+sftpCache.json

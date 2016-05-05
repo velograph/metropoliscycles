@@ -1,0 +1,29 @@
+{
+  "name": "metropolis-cycles",
+  "title": "Metropolis Cycles",
+  "description": "Metropolis Cycles",
+  "version": "0.1.0",
+  "homepage": "http://velograph.co",
+  "author": {
+    "name": "Jason Britton",
+    "email": "jason@velograph.co",
+    "url": "http://velograph.co"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:velograph/basis.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-sass": "~0.9.2",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-sass": "^0.17.0",
+    "jpegtran-bin": "0.2.0",
+    "grunt-contrib-imagemin": "~0.5.0"
+  },
+  "keywords": []
+}
