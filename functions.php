@@ -64,6 +64,60 @@ function metropoliscycles_setup() {
 endif; // metropoliscycles_setup
 add_action( 'after_setup_theme', 'metropoliscycles_setup' );
 
+// Register Custom Post Type
+function bike_types() {
+
+	$labels = array(
+		'name'                  => __( 'Bikes', 'Post Type General Name', 'metropoliscycles' ),
+		'singular_name'         => __( 'Bike', 'Post Type Singular Name', 'metropoliscycles' ),
+		'menu_name'             => __( 'Bikes', 'metropoliscycles' ),
+		'name_admin_bar'        => __( 'Bike', 'metropoliscycles' ),
+		'archives'              => __( 'Bike Archives', 'metropoliscycles' ),
+		'parent_item_colon'     => __( 'Parent Bike:', 'metropoliscycles' ),
+		'all_items'             => __( 'All Bikes', 'metropoliscycles' ),
+		'add_new_item'          => __( 'Add New Bike', 'metropoliscycles' ),
+		'add_new'               => __( 'Add New', 'metropoliscycles' ),
+		'new_item'              => __( 'New Bike', 'metropoliscycles' ),
+		'edit_item'             => __( 'Edit Bike', 'metropoliscycles' ),
+		'update_item'           => __( 'Update Bike', 'metropoliscycles' ),
+		'view_item'             => __( 'View Bike', 'metropoliscycles' ),
+		'search_items'          => __( 'Search Bikes', 'metropoliscycles' ),
+		'not_found'             => __( 'Not found', 'metropoliscycles' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'metropoliscycles' ),
+		'featured_image'        => __( 'Featured Image', 'metropoliscycles' ),
+		'set_featured_image'    => __( 'Set featured image', 'metropoliscycles' ),
+		'remove_featured_image' => __( 'Remove featured image', 'metropoliscycles' ),
+		'use_featured_image'    => __( 'Use as featured image', 'metropoliscycles' ),
+		'insert_into_item'      => __( 'Insert into item', 'metropoliscycles' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'metropoliscycles' ),
+		'items_list'            => __( 'Items list', 'metropoliscycles' ),
+		'items_list_navigation' => __( 'Items list navigation', 'metropoliscycles' ),
+		'filter_items_list'     => __( 'Filter items list', 'metropoliscycles' ),
+	);
+	$args = array(
+		'label'                 => __( 'Bike', 'metropoliscycles' ),
+		'description'           => __( 'Bike Models', 'metropoliscycles' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes', ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 20,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'bike', $args );
+
+}
+add_action( 'init', 'bike_types', 0 );
+
 /**
  * Register widget area.
  *
@@ -88,15 +142,15 @@ add_action( 'widgets_init', 'metropoliscycles_widgets_init' );
 function metropoliscycles_scripts() {
 	wp_enqueue_style( 'metropoliscycles-style', get_stylesheet_directory_uri() . '/css/style.css', false, filemtime(get_stylesheet_directory() . '/css/style.css') );
 
-	wp_enqueue_script( 'metropoliscycles-site-scripts', get_template_directory_uri() . '/js/site-scripts.js', array(), '20130115', true );
+    wp_enqueue_script('jquery');
 
-	wp_enqueue_script( 'metropoliscycles-jQuery', '//code.jquery.com/ui/1.11.4/jquery-ui.js', false, true );
+	wp_enqueue_script( 'metropoliscycles-site-scripts', get_template_directory_uri() . '/js/site-scripts.js' );
 
-	wp_enqueue_script( 'metropoliscycles-pictureFill', get_template_directory_uri() . '/js/pictureFill.js', array(), '20130115', true );
+	wp_enqueue_script( 'metropoliscycles-pictureFill', get_template_directory_uri() . '/js/pictureFill.js' );
 
-	wp_enqueue_script( 'metropoliscycles-matchHeight', get_template_directory_uri() . '/js/matchHeight.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'metropoliscycles-matchHeight', get_template_directory_uri() . '/js/matchHeight.min.js' );
 
-	wp_enqueue_script( 'metropoliscycles-slick', get_template_directory_uri() . '/js/slick.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'metropoliscycles-slick', get_template_directory_uri() . '/js/slick.min.js' );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -115,45 +169,7 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/extras.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
-/**
- * Declare Woocommerce support
- */
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
-    add_theme_support( 'woocommerce' );
-}
-
 add_image_size( 'portal-mobile', '480', '360', 'true' );
 add_image_size( 'portal-tablet', '768', '576', 'true' );
 add_image_size( 'portal-desktop', '1280', '960', 'true' );
 add_image_size( 'portal-retina', '2400', '1800', 'true' );
-
-// Remove Woo styling
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-
-/**
- * TypeKit Fonts
- */
-function theme_typekit() {
-    wp_enqueue_script( 'theme_typekit', '//use.typekit.net/bpk6lyp.js');
-}
-add_action( 'wp_enqueue_scripts', 'theme_typekit' );
-
-function theme_typekit_inline() {
-  if ( wp_script_is( 'theme_typekit', 'done' ) ) { ?>
-  	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<?php }
-}
-add_action( 'wp_head', 'theme_typekit_inline' );
-
-// Disable reviews on products
-add_filter( 'woocommerce_product_tabs', 'wcs_woo_remove_reviews_tab', 98 );
-function wcs_woo_remove_reviews_tab($tabs) {
- unset($tabs['reviews']);
- return $tabs;
-}
