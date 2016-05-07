@@ -53,11 +53,11 @@ get_header(); ?>
 
 						<div class="employee-info">
 				            <?php the_sub_field('name'); ?>
-							Favorite Bike: <?php the_sub_field('favorite_bike'); ?>
-							Shop Expertise: <?php the_sub_field('expertise'); ?>
-							Talk to me About: <?php the_sub_field('talk_to_me_about'); ?>
-							Certification: <?php the_sub_field('certification'); ?>
-							<?php the_sub_field('biography'); ?>
+							<p>Favorite Bike: <?php the_sub_field('favorite_bike'); ?></p>
+							<p>Shop Expertise: <?php the_sub_field('expertise'); ?></p>
+							<p>Talk to me About: <?php the_sub_field('talk_to_me_about'); ?></p>
+							<p>Certification: <?php the_sub_field('certification'); ?></p>
+							<p><?php the_sub_field('biography'); ?></p>
 						</div>
 
 			        <?php endif; ?>

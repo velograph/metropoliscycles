@@ -1,0 +1,88 @@
+.header {
+	background: $black;
+	color: $white;
+	.inner-container {
+		@include outer-container;
+		@include media( $large-screen ) {
+			padding-left: $ten;
+			padding-right: $ten;
+		}
+		.site-branding {
+			@include span-columns(8);
+			padding-bottom: $five;
+			padding-top: $five;
+			@include media( $medium-screen ) {
+				@include span-columns(4);
+				padding-bottom: 0;
+				padding-top: 0;
+			}
+		}
+		.location-hours-navigation {
+			text-align: right;
+			display: none;
+			@include media( $large-screen ) {
+				@include span-columns(8);
+			}
+			.location-hours {
+				.hours {
+					font-weight: 700;
+					margin-bottom: $five;
+					span {
+						border-bottom: 2px solid $dark-gray;
+						padding-bottom: $five;
+					}
+				}
+				.address-phone {
+					@include row();
+					color: $light-gray;
+					a {
+						color: $light-gray;
+						&:hover {
+							color: $red;
+						}
+					}
+				}
+			}
+			.main-navigation {
+				@include row();
+				ul {
+					li {
+						@include span-columns(3);
+						text-align: right;
+						a {
+							color: $white;
+							font-size: 20px;
+							font-weight: 700;
+							&:hover {
+								color: $red;
+							}
+						}
+						&.current-menu-item {
+							a {
+								color: $light-gray;
+								&:hover {
+									color: $red;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.mobile-menu-trigger {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: $thirty;
+		@include media( $medium-screen ) {
+			width: $fifty;
+		}
+		@include media( $large-screen ) {
+			display: none;
+		}
+	}
+	.slide-out {
+		display: none;
+	}
+}

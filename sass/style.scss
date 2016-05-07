@@ -18,8 +18,39 @@
 @import "base/base";
 
 @import "variables";
+@import "header";
 @import "slick";
+@import "footer";
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
 
 body {
-	// background: red;
+	background: $white;
+	font-family: $helvetica;
+	height: 100%;
+	img {
+		height: auto;
+	}
+	select {
+		border-color: $black;
+		color: $black;
+		height: $twentyfive;
+		width: 100%;
+	}
+	.skip-link,
+	.screen-reader-text {
+		clip: rect(1px, 1px, 1px, 1px);
+		position: absolute;
+		text-indent: -9999px;
+	}
+	a {
+		color: $dark-gray;
+		&:hover {
+			color: $red;
+		}
+	}
 }

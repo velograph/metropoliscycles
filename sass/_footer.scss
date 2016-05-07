@@ -1,0 +1,76 @@
+.footer {
+	background: $light-gray;
+	padding-top: $fifteen;
+	.top-border {
+		border-top: $five solid $red;
+		height: 10px;
+	}
+	.footer-row {
+		@include outer-container;
+		@include media( $large-screen ) {
+			padding-left: $ten;
+			padding-right: $ten;
+		}
+		.location-contact {
+			color: $white;
+			font-weight: 700;
+			margin-top: $fifteen;
+			text-align: center;
+			@include media( $large-screen ) {
+				@include span-columns(4);
+				text-align: left;
+			}
+			a {
+				color: $white;
+			}
+		}
+		.cityscape {
+			display: none;
+			position: relative;
+			@include media( $large-screen ) {
+				@include span-columns(4);
+			}
+			svg {
+				position: relative;
+				top: $ten;
+			}
+		}
+		.social-links {
+			margin-bottom: $fifteen;
+			margin-top: $fifteen;
+			text-align: center;
+			@include media( $large-screen ) {
+				@include span-columns(4);
+				margin-bottom: 0;
+				text-align: right;
+			}
+			.facebook {
+				margin-bottom: $fifteen;
+			}
+			svg {
+				width: $twentyfive;
+			}
+		}
+	}
+	.mobile-cityscape {
+		position: relative;
+		top: $ten;
+		@include media( $large-screen ) {
+			display: none;
+		}
+	}
+	.hours-copyright {
+		background: $dark-gray;
+		color: $white;
+		position: relative;
+		text-align: center;
+		.hours {
+			font-weight: 700;
+			padding: $ten $twentyfive;
+		}
+		.copyright {
+			font-size: 12px;
+			padding-bottom: $ten;
+		}
+	}
+}
