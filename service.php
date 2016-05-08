@@ -16,21 +16,37 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
+			<div class="intro-container">
+				<div class="intro">
+					<?php the_field('service_intro'); ?>
+				</div>
+			</div>
+
 			<?php if( have_rows('service_levels') ) : ?>
 
-			    <?php while ( have_rows('service_levels') ) : ?>
+				<div class="service-levels">
 
-			        <?php the_row(); ?>
+				    <?php while ( have_rows('service_levels') ) : ?>
 
-			        <?php if( get_row_layout() == 'service_level' ) : ?>
+				        <?php the_row(); ?>
 
-						<?php the_sub_field('service_name'); ?>
-						$<?php the_sub_field('service_price'); ?>
-			            <?php the_sub_field('service_description'); ?>
+				        <?php if( get_row_layout() == 'service_level' ) : ?>
 
-			        <?php endif; ?>
+							<div class="service">
 
-			    <?php endwhile; ?>
+								<h2><?php the_sub_field('service_name'); ?></h2>
+								<h3>$<?php the_sub_field('service_price'); ?></h3>
+								<div class="service-description">
+					            	<?php the_sub_field('service_description'); ?>
+								</div>
+
+							</div>
+
+				        <?php endif; ?>
+
+				    <?php endwhile; ?>
+
+				</div>
 
 			<?php endif; ?>
 

@@ -1,0 +1,89 @@
+.content-area {
+	.intro-container {
+		@include row();
+		.intro {
+			padding: $fifteen $twentyfive;
+			@include media( $medium-screen ) {
+				@include span-columns(8);
+				@include shift(2);
+				font-size: $h3-font-size;
+				padding: $fifty 0;
+			}
+		}
+	}
+	.employee-list {
+		@include outer-container;
+		@include media( $large-screen ) {
+			padding-left: $ten;
+			padding-right: $ten;
+		}
+		.employee {
+			@include row();
+			clear: both;
+			margin-bottom: $hundred;
+			h3 {
+				margin-bottom: $fifty;
+				text-align: center;
+			}
+			.employee-image {
+				margin-bottom: $twentyfive;
+				@include media( $large-screen ) {
+					@include span-columns(6);
+					margin-bottom: 0;
+				}
+			}
+			.employee-info {
+				padding: 0 $twentyfive;
+				@include media( $medium-screen ) {
+					padding: 0 $fifty;
+				}
+				@include media( $large-screen ) {
+					@include span-columns(6);
+					padding: 0;
+				}
+				.key {
+					color: $black;
+					font-size: $h6-font-size;
+				}
+				.value {
+					color: $dark-gray;
+					font-size: $h6-font-size;
+				}
+			}
+		}
+	}
+	.service-levels {
+		@include row();
+		.service {
+			margin-bottom: $hundred;
+			// padding: $twentyfive;
+			@include media( $medium-screen ) {
+				@include span-columns(10);
+				@include shift(1);
+				padding: 0;
+			}
+			@include media( $large-screen ) {
+				@include span-columns(8);
+				@include shift(2);
+			}
+			h2, h3 {
+				margin-bottom: $twentyfive;
+				text-align: center;
+			}
+			h2 {
+				color: $dark-gray;
+			}
+			h3 {
+				color: $light-gray;
+			}
+			.service-description {
+				border: 1px solid $dark-gray;
+				margin: 0 $twentyfive;
+				padding: $fifty;
+				p:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

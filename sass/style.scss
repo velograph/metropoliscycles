@@ -20,6 +20,7 @@
 @import "variables";
 @import "header";
 @import "front_page";
+@import "page";
 @import "slick";
 @import "footer";
 
@@ -31,6 +32,7 @@ body {
 
 body {
 	background: $white;
+	color: $black;
 	font-family: $helvetica;
 	height: 100%;
 	img {

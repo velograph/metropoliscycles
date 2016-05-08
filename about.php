@@ -16,53 +16,66 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php the_content(); ?>
+			<div class="intro-container">
+				<div class="intro">
+					<?php the_content(); ?>
+				</div>
+			</div>
 
 			<?php if( have_rows('employees') ) : ?>
 
-			    <?php while ( have_rows('employees') ) : ?>
+				<div class="employee-list">
 
-			        <?php the_row(); ?>
+				    <?php while ( have_rows('employees') ) : ?>
 
-			        <?php if( get_row_layout() == 'employee' ) : ?>
+				        <?php the_row(); ?>
 
-						<div class="employee-image">
-							<?php $mobile = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-mobile'); ?>
-							<?php $tablet = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-tablet'); ?>
-							<?php $desktop = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-desktop'); ?>
-							<?php $retina = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-retina'); ?>
+				        <?php if( get_row_layout() == 'employee' ) : ?>
 
-							<picture>
-								<!--[if IE 9]><video style="display: none"><![endif]-->
-								<source
-									srcset="<?php echo $mobile[0]; ?>"
-									media="(max-width: 500px)" />
-								<source
-									srcset="<?php echo $tablet[0]; ?>"
-									media="(max-width: 860px)" />
-								<source
-									srcset="<?php echo $desktop[0]; ?>"
-									media="(max-width: 1180px)" />
-								<source
-									srcset="<?php echo $retina[0]; ?>"
-									media="(min-width: 1181px)" />
-								<!--[if IE 9]></video><![endif]-->
-								<img srcset="<?php echo $image[0]; ?>">
-							</picture>
-						</div>
+							<div class="employee">
 
-						<div class="employee-info">
-				            <?php the_sub_field('name'); ?>
-							<p>Favorite Bike: <?php the_sub_field('favorite_bike'); ?></p>
-							<p>Shop Expertise: <?php the_sub_field('expertise'); ?></p>
-							<p>Talk to me About: <?php the_sub_field('talk_to_me_about'); ?></p>
-							<p>Certification: <?php the_sub_field('certification'); ?></p>
-							<p><?php the_sub_field('biography'); ?></p>
-						</div>
+								<h3><?php the_sub_field('name'); ?></h3>
 
-			        <?php endif; ?>
+								<div class="employee-image">
+									<?php $mobile = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-mobile'); ?>
+									<?php $tablet = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-tablet'); ?>
+									<?php $desktop = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-desktop'); ?>
+									<?php $retina = wp_get_attachment_image_src(get_sub_field('employee_picture'), 'portal-retina'); ?>
 
-			    <?php endwhile; ?>
+									<picture>
+										<!--[if IE 9]><video style="display: none"><![endif]-->
+										<source
+											srcset="<?php echo $mobile[0]; ?>"
+											media="(max-width: 500px)" />
+										<source
+											srcset="<?php echo $tablet[0]; ?>"
+											media="(max-width: 860px)" />
+										<source
+											srcset="<?php echo $desktop[0]; ?>"
+											media="(max-width: 1180px)" />
+										<source
+											srcset="<?php echo $retina[0]; ?>"
+											media="(min-width: 1181px)" />
+										<!--[if IE 9]></video><![endif]-->
+										<img srcset="<?php echo $image[0]; ?>">
+									</picture>
+								</div>
+
+								<div class="employee-info">
+									<p><span class="key">Favorite Bike:</span> <span class="value"><?php the_sub_field('favorite_bike'); ?></span></p>
+									<p><span class="key">Shop Expertise:</span> <span class="value"><?php the_sub_field('expertise'); ?></span></p>
+									<p><span class="key">Talk to me About:</span> <span class="value"><?php the_sub_field('talk_to_me_about'); ?></span></p>
+									<p><span class="key">Certification:</span> <span class="value"><?php the_sub_field('certification'); ?></span></p>
+									<p class="employee-bio"><?php the_sub_field('biography'); ?></p>
+								</div>
+
+							</div>
+
+				        <?php endif; ?>
+
+				    <?php endwhile; ?>
+
+				</div>
 
 			<?php endif; ?>
 
