@@ -8,8 +8,6 @@
  */
 ?>
 
-	</div>
-
 	<footer class="footer">
 
 		<div class="top-border">&nbsp;</div>

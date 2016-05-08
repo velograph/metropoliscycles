@@ -1,6 +1,8 @@
 .header {
 	background: $black;
 	color: $white;
+	position: relative;
+	z-index: 1;
 	.inner-container {
 		@include outer-container;
 		@include media( $large-screen ) {
@@ -20,6 +22,7 @@
 		.location-hours-navigation {
 			text-align: right;
 			display: none;
+			padding-top: $five;
 			@include media( $large-screen ) {
 				@include span-columns(8);
 			}
@@ -46,6 +49,7 @@
 			.main-navigation {
 				@include row();
 				ul {
+					padding-top: $five;
 					li {
 						@include span-columns(3);
 						text-align: right;

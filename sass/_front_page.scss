@@ -1,0 +1,115 @@
+.front-page-featured-image {
+	@include media( $medium-screen ) {
+		width: 100vw;
+		position: fixed;
+		height: 100vh;
+		top: 0;
+		z-index: 0;
+	}
+	img {
+		display: flex;
+	}
+}
+.headline-container {
+	@include media( $medium-screen ) {
+		height: 100vh;
+		position: relative;
+	}
+	.headline {
+		color: $white;
+		font-size: $h5-font-size;
+		left: 50%;
+		position: absolute;
+		text-align: center;
+		top: 25%;
+		width: 75%;
+		@include media( $medium-screen ) {
+			font-size: 32px;
+			font-weight: 700;
+			top: 15%;
+		}
+		@include media( $medium-screen ) {
+			top: 35%;
+		}
+		@include transform(translateX(-50%));
+	}
+}
+.front-page-portals {
+	background: $white;
+	position: relative;
+	.portal-row {
+		@include row();
+		@include media( $large-screen ) {
+			padding: 0 0 $fifty;
+		}
+		.bikes,
+		.service {
+			text-align: center;
+			@include media( $medium-screen) {
+				@include span-columns(6, table);
+			}
+			.featured-image {
+				background: $black;
+				position: relative;
+				.opacity-layer {
+					background: $black;
+					height: 100%;
+					left: 0;
+					opacity: 0;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					@include transition(opacity .3s ease-in-out);
+				}
+				.image-caption {
+					color: $white;
+					font-size: $h2-font-size;
+					left: 50%;
+					opacity: 0;
+					position: absolute;
+					text-align: center;
+					top: 50%;
+					@include transition(opacity .3s ease-in-out);
+					@include transform(translate(-50%,-50%));
+				}
+				&:hover {
+					.opacity-layer {
+						opacity: .75;
+					}
+					.image-caption {
+						opacity: 1;
+					}
+				}
+				img {
+					display: flex;
+				}
+			}
+			h2 {
+				color: $dark-gray;
+				padding: $twentyfive 0;
+			}
+			.portal-link {
+				font-size: $h4-font-size;
+				a {
+					color: $light-gray;
+					&:hover {
+						color: $red;
+					}
+				}
+			}
+		}
+		.service {
+			.service-link {
+				margin: 0 auto;
+				width: 50%;
+				a {
+					color: $light-gray;
+					font-size: $h4-font-size;
+					&:hover {
+						color: $red;
+					}
+				}
+			}
+		}
+	}
+}
