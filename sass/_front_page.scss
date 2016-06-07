@@ -9,6 +9,9 @@
 	img {
 		display: flex;
 	}
+	.front-page-gallery {
+		position: relative;
+	}
 }
 .headline-container {
 	@include media( $medium-screen ) {

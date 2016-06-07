@@ -44,34 +44,48 @@ get_header(); ?>
 			jQuery('.headline-container').css('height', window_height_corrected);
 		}
 	});
+	jQuery(document).ready(function(){
+		jQuery('.front-page-gallery').slick({
+			autoplay: true,
+			arrows: false,
+			dots: false,
+		});
+	});
 
 </script>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<div class="front-page-featured-image">
-			<?php $mobile = wp_get_attachment_image_src(get_field('featured_image'), 'portal-mobile'); ?>
-			<?php $tablet = wp_get_attachment_image_src(get_field('featured_image'), 'portal-tablet'); ?>
-			<?php $desktop = wp_get_attachment_image_src(get_field('featured_image'), 'portal-desktop'); ?>
-			<?php $retina = wp_get_attachment_image_src(get_field('featured_image'), 'portal-retina'); ?>
 
-			<picture>
-				<!--[if IE 9]><video style="display: none"><![endif]-->
-				<source
-					srcset="<?php echo $mobile[0]; ?>"
-					media="(max-width: 500px)" />
-				<source
-					srcset="<?php echo $tablet[0]; ?>"
-					media="(max-width: 860px)" />
-				<source
-					srcset="<?php echo $desktop[0]; ?>"
-					media="(max-width: 1180px)" />
-				<source
-					srcset="<?php echo $retina[0]; ?>"
-					media="(min-width: 1181px)" />
-				<!--[if IE 9]></video><![endif]-->
-				<img srcset="<?php echo $image[0]; ?>">
-			</picture>
+			<?php
+
+			$images = get_field('gallery');
+
+			if( $images ): ?>
+			    <div class="front-page-gallery">
+			        <?php foreach( $images as $image ): ?>
+			            <div class="slide">
+							<picture>
+								<!--[if IE 9]><video style="display: none"><![endif]-->
+								<source
+									srcset="<?php echo $image['sizes']['portal-mobile']; ?>"
+									media="(max-width: 500px)" />
+								<source
+									srcset="<?php echo $image['sizes']['portal-tablet']; ?>"
+									media="(max-width: 860px)" />
+								<source
+									srcset="<?php echo $image['sizes']['portal-desktop']; ?>"
+									media="(min-width: 861px)" />
+								<!--[if IE 9]></video><![endif]-->
+								<img data-lazy="<?php echo $image[0]; ?>">
+							</picture>
+			            </div>
+			        <?php endforeach; ?>
+			    </div>
+			<?php endif; ?>
+
+
 		</div>
 
 		<div class="headline-container">
@@ -125,6 +139,7 @@ get_header(); ?>
 					</div>
 
 					<h2>Bikes</h2>
+					<h6>Browse By Category</h6>
 
 					<?php
 						//list terms in a given taxonomy
@@ -132,7 +147,7 @@ get_header(); ?>
 						$tax_terms = get_terms(
 							array(
 								$taxonomy,
-								'include' => array(1,2,3,5),
+								'include' => array(1,2,3,5,12,14,15),
 							)
 						);
 					?>
