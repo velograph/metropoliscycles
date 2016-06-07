@@ -62,9 +62,7 @@ get_header(); ?>
 								</div>
 
 								<div class="employee-info">
-									<p><span class="key">Favorite Bike:</span> <span class="value"><?php the_sub_field('favorite_bike'); ?></span></p>
-									<p><span class="key">Shop Expertise:</span> <span class="value"><?php the_sub_field('expertise'); ?></span></p>
-									<p><span class="key">Talk to me About:</span> <span class="value"><?php the_sub_field('talk_to_me_about'); ?></span></p>
+									<p><span class="key">Expertise:</span> <span class="value"><?php the_sub_field('expertise'); ?></span></p>
 									<p><span class="key">Certification:</span> <span class="value"><?php the_sub_field('certification'); ?></span></p>
 									<p class="employee-bio"><?php the_sub_field('biography'); ?></p>
 								</div>
