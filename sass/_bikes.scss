@@ -1,0 +1,50 @@
+.bikes-archive {
+	position: relative;
+	.taxonomy-image-title {
+		position: relative;
+		.taxonomy-image {
+			position: relative;
+		}
+		.taxonomy-title {
+			bottom: $fifty;
+			color: $white;
+			left: 50%;
+			position: absolute;
+			@include transform(translateX(-50%));
+		}
+	}
+	.portal-container {
+		@include outer-container;
+		margin-bottom: $hundred;
+		margin-top: $hundred;
+		position: relative;
+		.portal {
+			@include row();
+			margin-bottom: $fifty;
+			margin-top: $fifty;
+			.featured-image-container {
+				@include span-columns(10);
+				@include shift(1);
+				@include media( $medium-screen ) {
+					@include span-columns(5);
+					@include shift(1);
+				}
+			}
+			.bike-info {
+				@include span-columns(10);
+				@include shift(1);
+				@include media( $medium-screen ) {
+					@include span-columns(5);
+					@include shift(0);
+				}
+				.bullet-points {
+					color: $light-gray;
+					margin-bottom: $twentyfive;
+					.key {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+}

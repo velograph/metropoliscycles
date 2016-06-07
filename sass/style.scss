@@ -20,6 +20,7 @@
 @import "variables";
 @import "header";
 @import "front_page";
+@import "bikes";
 @import "page";
 @import "slick";
 @import "footer";
@@ -32,8 +33,7 @@ body {
 
 body {
 	background: $white;
-	color: $black;
-	font-family: $helvetica;
+	color: $dark-gray;
 	height: 100%;
 	img {
 		height: auto;

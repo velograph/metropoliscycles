@@ -209,7 +209,12 @@ require get_template_directory() . '/inc/extras.php';
 add_image_size( 'portal-mobile', '480', '360', 'true' );
 add_image_size( 'portal-tablet', '768', '576', 'true' );
 add_image_size( 'portal-desktop', '1280', '960', 'true' );
-add_image_size( 'portal-retina', '2400', '1800', 'true' );
+add_image_size( 'portal-retina', '2400', '1600', 'true' );
+
+add_image_size( 'banner-mobile', '480', '360', 'true' );
+add_image_size( 'banner-tablet', '768', '256', 'true' );
+add_image_size( 'banner-desktop', '1280', '427', 'true' );
+add_image_size( 'banner-retina', '2400', '800', 'true' );
 
 /**
  * TypeKit Fonts

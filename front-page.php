@@ -147,7 +147,7 @@ get_header(); ?>
 						$tax_terms = get_terms(
 							array(
 								$taxonomy,
-								'include' => array(1,2,3,5,12,14,15),
+								'include' => array(1,2,3,5,12,14,15,16),
 							)
 						);
 					?>

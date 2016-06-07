@@ -1,11 +1,18 @@
 .content-area {
 	.intro-container {
 		@include row();
+		.title {
+			text-align: center;
+			margin-top: $fifty;
+		}
+		.banner-separator {
+			margin: $fifty 0;
+		}
 		.intro {
 			padding: $fifteen $twentyfive;
 			@include media( $medium-screen ) {
-				@include span-columns(8);
-				@include shift(2);
+				@include span-columns(6);
+				@include shift(3);
 				font-size: $h3-font-size;
 				padding: $fifty 0;
 			}
